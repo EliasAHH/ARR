@@ -1,0 +1,25 @@
+Has Many Patients can have MANY appointments 
+
+Belongs TO APPOINTMENT belongs to a specific patient 
+
+Has Many Through  Patients can have many doctors as long as go THROUGH the Appointments table
+
+class Patient 
+
+    def appointment
+        Appointment.all.select {|a| a.patient == self} 
+    end 
+end
+
+
+
+class Appointment
+   attr_accessor :patient
+end 
+
+## Appointment.create(date:"Feb 20", patient_id: 1 , doctor_id:1 )
+
+# > p1.doctors << d1 
+
+#.new and .build the SAME YOU NEED TO USE .save 
+
